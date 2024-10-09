@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <met#aeb3b8et="utf-8">
+        <meta charset="utf-8">
         <title>Mohamed Fadhil</title>
+        <link rel="icon" href="img/profile.jpg" type="image/png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         
 
@@ -307,37 +309,38 @@
                     <!-- Contact Start -->
                     <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
                         <h1 class="title pb-3 mb-5">Contact Me</h1>
-                        <form>
+                        <form method="post" action="https://script.google.com/macros/s/AKfycbwa2zaMMLueBQsIlqBID3rjIdcSiXAw_e9RlNH96SQb_V1YpCs2MU3EsJmxm_U-hIKe/exec" id="contact-form">
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
+                              <div class="col-md-6">
+                                <div class="form-floating">
+                                  <input type="text" name="name" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name" required>
+                                  <label for="name">Your Name</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-floating">
+                                  <input type="email" name="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email" required>
+                                  <label for="email">Your Email</label>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="form-floating">
+                                  <input type="text" name="subject" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject" required>
+                                  <label for="subject">Subject</label>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="form-floating">
+                                  <textarea class="form-control border-0 bg-secondary" name="message" placeholder="Leave a message here" id="message" style="height: 200px" required></textarea>
+                                  <label for="message">Message</label>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
+                              </div>
+                              <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                              </div>
                             </div>
-                        </form>
+                          </form>
+                                                    
                     </section>
                     <!-- Contact End -->
 
@@ -385,6 +388,7 @@
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
+        <script src="sheet.js"></script> <!-- Corrected script source link -->
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
