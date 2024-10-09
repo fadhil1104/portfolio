@@ -1,0 +1,49 @@
+Official Documentation for Portfolio Development
+
+1. Template Download Source
+---------------------------
+- HTML Codex: https://htmlcodex.com/
+  - Chosen for its high-quality, flexible templates.
+
+2. Google Sheets Integration
+---------------------------
+- Method: Integrated Google Sheets to store form submissions.
+- Tutorial: https://youtu.be/jdIntB1J-i8?si=znWwsivo6g8IMfMz
+  - A simple way to manage form data without complex backend.
+
+3. Google Apps Script Code
+---------------------------
+const sheetName = 'sheet1';
+const scriptProp = PropertiesService.getScriptProperties();
+
+function intialSetup() {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+}
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    const sheet = doc.getSheetByName(sheetName);
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const nextRow = sheet.getLastRow() + 1;
+
+    const newRow = headers.map(function(header) {
+      return header === 'Date' ? new Date() : e.parameter[header];
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    return ContentService.createTextOutput(JSON.stringify({'result': 'success', 'row': nextRow}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (e) {
+    return ContentService.createTextOutput(JSON.stringify({'result': 'error', 'error': e}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}

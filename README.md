@@ -22,3 +22,11 @@ To view or modify this project:
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/fadhil1104/portfolio.git
+
+
+### Key Changes:
+1. **Structure**: Added clear sections for different aspects like template customization, backend integration, and Google Sheets.
+2. **Formal Language**: Used more professional and formal wording.
+3. **Markdown Styling**: Proper headings, lists, and code blocks for better readability.
+
+Feel free to copy this to your `README.md` file, replacing the necessary URLs and repository names with your own!
